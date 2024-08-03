@@ -11,7 +11,15 @@ pipeline {
             }                    
             steps {
                 script {
-                    sh "ansible-playbook main.yml -i hosts -v"
+                    withCredentials([azureServicePrincipal('sp-iac-azure')]){
+                        echo "Iniciando sesion Azure"
+
+                        sh "az account clear"
+                        sh "az login --service-principal --username ${AZURE_CLIENT_ID} --password ${AZURE_CLIENT_SECRET} --tenant ${AZURE_TENANT_ID}"
+                        sh "az account set --subscription ${AZURE_SUBSCRIPTION_ID}"
+
+                        sh "ansible-playbook main.yml -i hosts -e subscription_id=${AZURE_SUBSCRIPTION_ID} -e client_id=${AZURE_CLIENT_ID} -e secret_id=${AZURE_CLIENT_SECRET} -e tenant_id=${AZURE_TENANT_ID} -v"
+                    }
                 }
             }
         }

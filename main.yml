@@ -1,5 +1,12 @@
 - hosts: "azure-ansible"
   connection: local
 
+  environment:
+    AZURE_SUBSCRIPTION_ID: '{{ subscription_id }}'
+    AZURE_CLIENT_ID: '{{ client_id }}'
+    AZURE_SECRET: '{{ secret_id }}'
+    AZURE_TENANT: '{{ tenant_id }}'
+
   roles:
     - install-util
+    - create-vm-azure
