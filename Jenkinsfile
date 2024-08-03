@@ -23,7 +23,7 @@ pipeline {
 
                         echo "Creando VM en Azure"
 
-                        sh "ansible-playbook site.yml -e subscription_id=${AZURE_SUBSCRIPTION_ID} -e client_id=${AZURE_CLIENT_ID} -e secret_id=${AZURE_CLIENT_SECRET} -e tenant_id=${AZURE_TENANT_ID} -v"
+                        sh "ansible-playbook site.yml -i hosts -e subscription_id=${AZURE_SUBSCRIPTION_ID} -e client_id=${AZURE_CLIENT_ID} -e secret_id=${AZURE_CLIENT_SECRET} -e tenant_id=${AZURE_TENANT_ID} -v"
 
                         echo "Validando VM en Azure"
 
