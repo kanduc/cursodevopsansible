@@ -9,4 +9,9 @@
 
   roles:
     - install-util
-    - create-vm-azure
+    - { role: create-vm-azure,
+        when: TIPO_TAREA == "CREATE_VM"
+      }
+    - { role: rollback-vm-azure,
+        when: TIPO_TAREA == "ROLLBACK_VM"
+      }

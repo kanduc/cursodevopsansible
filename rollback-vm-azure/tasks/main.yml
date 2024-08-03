@@ -1,0 +1,2 @@
+- name: Eliminar Resource Group y componentes
+  import_tasks: vm_uninstall.yml
