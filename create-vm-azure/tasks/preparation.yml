@@ -15,4 +15,4 @@
   register: rg_status
 
 - debug:
-  msg: "Resultado final RG: {{ rg_status }}"
+    msg: "Resultado final RG: {{ rg_status }}"
