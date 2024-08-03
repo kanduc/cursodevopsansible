@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Test Ansible') {
+        stage('Configure with Ansible') {
             agent {
                 docker {
                     image 'jenkins-ansible:1.0.0'
@@ -11,8 +11,7 @@ pipeline {
             }                    
             steps {
                 script {
-                    sh "ansible --version"
-                    sh "az version"
+                    sh "ansible-playbook main.yml -v"
                 }
             }
         }
