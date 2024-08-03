@@ -1,0 +1,20 @@
+
+rg_name: miRGAnsible
+
+resource_group:
+  name: miRGAnsible
+
+virtual_network:
+  name: myVnetAnsible
+
+subnet:
+  name: mySubnetAnsible
+
+public_ip:
+  name: myPublicIPAnsible
+
+network_security:
+  name: myNetworkSecurityGroupAnsible
+
+interface:
+  name: myNICAnsible

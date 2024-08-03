@@ -1,0 +1,62 @@
+- name: Create virtual network
+  azure_rm_virtualnetwork:
+    resource_group: "{{ resource_group.name }}"
+    name: "{{ virtual_network.name }}"
+    address_prefixes: "10.0.0.0/16"
+
+- name: Add subnet
+  azure_rm_subnet:
+    resource_group: "{{ rg_name }}"
+    name: "{{ subnet.name }}"
+    address_prefix: "10.0.1.0/24"
+    virtual_network: "{{ virtual_network.name }}"
+
+- name: Create public IP address
+  azure_rm_publicipaddress:
+    resource_group: "{{ resource_group.name }}"
+    allocation_method: Static
+    name: "{{ public_ip.name }}"
+  register: output_ip_address
+
+- name: Public IP of VM
+  debug:
+    msg: "The public IP is {{ output_ip_address.state.ip_address }}."
+
+- name: Create Network Security Group that allows SSH
+  azure_rm_securitygroup:
+    resource_group: "{{ resource_group.name }}"
+    name: "{{ network_security.name }}"
+    rules:
+      - name: SSH
+        protocol: Tcp
+        destination_port_range: 22
+        access: Allow
+        priority: 1001
+        direction: Inbound
+
+- name: Create virtual network interface card
+  azure_rm_networkinterface:
+    resource_group: "{{ resource_group.name }}"
+    name: "{{ interface.name }}"
+    virtual_network: "{{ virtual_network.name }}"
+    subnet: "{{ subnet.name }}"
+    security_group: "{{ network_security.name }}"
+    ip_configurations:
+      - name: ipconfigAnsible
+        public_ip_address_name: "{{ public_ip.name }}"
+        primary: true
+
+- name: Create VM
+  azure_rm_virtualmachine:
+    resource_group: "{{ resource_group.name }}"
+    name: myVMAnsible
+    vm_size: Standard_DS1_v2
+    admin_username: azureuser
+    admin_password: devopsTecGurus
+    ssh_password_enabled: true
+    network_interfaces: "{{ interface.name }}"
+    image:
+      offer: CentOS
+      publisher: OpenLogic
+      sku: '7.5'
+      version: latest
