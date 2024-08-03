@@ -11,7 +11,7 @@
     - validation
     - { role: create-vm-azure,
         when: COMPONENT == "create-vm-azure"
-    }
+      }
     - { role: rollback-vm-azure,
         when: COMPONENT == "rollback-vm-azure"
-    }
+      }
