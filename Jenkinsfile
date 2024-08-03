@@ -11,7 +11,7 @@ pipeline {
             }                    
             steps {
                 script {
-                    sh "ansible-playbook main.yml -v"
+                    sh "ansible-playbook main.yml -i hosts -v"
                 }
             }
         }
