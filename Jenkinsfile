@@ -23,7 +23,7 @@ pipeline {
 
                         echo "Creando VM en Azure"
 
-                        sh "ansible-playbook main.yml"
+                        sh "ansible-playbook main.yml -v"
 
                         echo "Validando VM en Azure"
 
