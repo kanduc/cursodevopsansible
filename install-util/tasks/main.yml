@@ -1,0 +1,13 @@
+- name: Install zip
+  apt:
+    name: zip
+    state: present
+
+- name: Validate zip version
+  shell:
+    cmd: zip -v
+
+- name: Uninstall zip
+  apt:
+    name: zip
+    state: absent

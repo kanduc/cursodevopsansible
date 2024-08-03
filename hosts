@@ -1,0 +1,6 @@
+[azure-ansible]
+localhost
+
+[redhat-server]
+120.23.23.1
+121.3.2.1

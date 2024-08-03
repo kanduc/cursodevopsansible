@@ -1,17 +1,5 @@
-- hosts: localhost
+- hosts: "azure-ansible"
   connection: local
 
-  tasks:
-  - name: Install zip
-    apt:
-      name: zip
-      state: present
-
-  - name: Validate zip version
-    shell:
-      cmd: zip -v
-
-  - name: Uninstall zip
-    apt:
-      name: zip
-      state: absent
+  roles:
+    - install-util
