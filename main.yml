@@ -48,8 +48,11 @@
       name: myNICAnsible
       virtual_network: myVnetAnsible
       subnet: mySubnetAnsible
-      public_ip_name: myPublicIPAnsible
       security_group: myNetworkSecurityGroupAnsible
+      ip_configurations:
+        - name: ipconfigAnsible
+          public_ip_address_name: myPublicIPAnsible
+            primary: true
   - name: Create VM
     azure_rm_virtualmachine:
       resource_group: myResourceGroupAnsible

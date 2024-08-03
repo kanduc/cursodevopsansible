@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Test Ansible') {
+        stage('Aprovisionando Ansible') {
             agent {
                 docker {
                     image 'jenkins-ansible:1.0.0'
