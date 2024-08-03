@@ -1,20 +1,5 @@
 ---
-#Tasks para hacer una prueba de instalacion utilitarios
+#Tasks para eliminar VM
 
-- name: Install utilitario
-  apt: 
-    name: zip
-    state: present
-
-- name: List zip
-  shell:
-    cmd: zip -v
-
-- name: Install utilitario
-  apt: 
-    name: zip
-    state: absent
-
-- name: List zip
-  shell:
-    cmd: zip -v
+- name: Eliminar Virtual Machine y componentes
+  import_tasks: vm_uninstall.yml

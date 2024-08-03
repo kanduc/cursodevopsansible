@@ -14,7 +14,3 @@
   apt: 
     name: zip
     state: absent
-
-- name: List zip
-  shell:
-    cmd: zip -v
