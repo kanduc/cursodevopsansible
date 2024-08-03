@@ -2,4 +2,4 @@
   import_tasks: preparation.yml
 
 - name: Crear Virtual Machine Azure
-  import_taks: vm_install.yml
+  import_tasks: vm_install.yml
