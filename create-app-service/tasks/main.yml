@@ -1,0 +1,8 @@
+- include_tasks: preparation.yml
+  when: TIPO_TAREA == "create-app-service-azure"
+
+- include_tasks: appservice_install.yml
+  when: TIPO_TAREA == "create-app-service-azure"
+
+- include_tasks: appservice_uninstall.yml
+  when: TIPO_TAREA == "rollback-app-service"

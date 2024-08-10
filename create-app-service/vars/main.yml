@@ -1,0 +1,5 @@
+
+resource_group: myResourceGroupWebAppNodeTec
+webapp_name: myfirstWebAppNodeTec
+plan_name: myAppServicePlanAppNodeTec
+location: eastus
