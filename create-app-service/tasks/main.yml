@@ -1,0 +1,5 @@
+- name: Validar pre requisitos Azure
+  import_tasks: preparation.yml
+
+- name: Crear App Service
+  import_tasks: appservice_install.yml

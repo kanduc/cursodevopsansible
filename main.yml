@@ -8,10 +8,13 @@
     AZURE_TENANT: '{{ tenant_id }}'
 
   roles:
-    - install-util
+#    - install-util
     - { role: create-vm-azure,
         when: TIPO_TAREA == "CREATE_VM"
       }
     - { role: rollback-vm-azure,
         when: TIPO_TAREA == "ROLLBACK_VM"
+      }
+    - { role: create-appservice,
+        when: TIPO_TAREA == "create-app-service-azure"
       }
