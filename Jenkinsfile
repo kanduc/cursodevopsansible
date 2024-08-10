@@ -18,7 +18,7 @@ pipeline {
                         sh "az login --service-principal --username ${AZURE_CLIENT_ID} --password ${AZURE_CLIENT_SECRET} --tenant ${AZURE_TENANT_ID}"
                         sh "az account set --subscription ${AZURE_SUBSCRIPTION_ID}"
 
-                        sh "ansible-playbook main.yml -i hosts -e TIPO_TAREA="+env.TIPO+" -e subscription_id=${AZURE_SUBSCRIPTION_ID} -e client_id=${AZURE_CLIENT_ID} -e secret_id=${AZURE_CLIENT_SECRET} -e tenant_id=${AZURE_TENANT_ID} -v"
+                        sh "ansible-playbook main.yml -i hosts -e TIPO_TAREA="+env.TYPE_TASK+" -e subscription_id=${AZURE_SUBSCRIPTION_ID} -e client_id=${AZURE_CLIENT_ID} -e secret_id=${AZURE_CLIENT_SECRET} -e tenant_id=${AZURE_TENANT_ID} -v"
                     }
                 }
             }
