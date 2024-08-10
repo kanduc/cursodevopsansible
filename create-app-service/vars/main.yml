@@ -1,5 +1,5 @@
 
-resource_group: myResourceGroupAppNode
-webapp_name: myfirstWebAppNode
-plan_name: myAppServicePlanAppNode
+resource_group: myResourceGroupAppNode2
+webapp_name: myfirstWebAppNode2
+plan_name: myAppServicePlanAppNode2
 location: eastus

@@ -8,6 +8,7 @@
       is_linux: true
       sku: F1
 #      number_of_workers: 1
+    scm_type: "LocalGit"
     frameworks:
       - name: "node"
         version: "18-lts"
