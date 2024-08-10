@@ -10,7 +10,7 @@
 - name: Create RG
   azure_rm_resourcegroup:
     name: "{{ resource_group }}"
-    location: eastus2
+    location: "{{ location }}"
   when: rg_exists_status.stdout|bool == false
   register: rg_status
 

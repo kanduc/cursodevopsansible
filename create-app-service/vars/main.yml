@@ -1,5 +1,5 @@
 
-resource_group: myResourceGroupWeb
+resource_group: myResourceGroupAppNode
 webapp_name: myfirstWebAppNode
-plan_name: myAppServicePlan
+plan_name: myAppServicePlanAppNode
 location: centralus
