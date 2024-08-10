@@ -6,7 +6,7 @@
       resource_group: "{{ resource_group }}"
       name: "{{ plan_name }}"
       is_linux: true
-      sku: S1
+      sku: F1
       number_of_workers: 1
     frameworks:
       - name: "node"
