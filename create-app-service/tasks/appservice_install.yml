@@ -10,4 +10,4 @@
 #      number_of_workers: 1
     frameworks:
       - name: "node"
-        version: "18"
+        version: "18-lts"
