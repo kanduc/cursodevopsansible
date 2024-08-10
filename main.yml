@@ -15,6 +15,6 @@
     - { role: rollback-vm-azure,
         when: TIPO_TAREA == "ROLLBACK_VM"
       }
-    - { role: create-appservice,
+    - { role: create-app-service,
         when: TIPO_TAREA == "create-app-service-azure"
       }
